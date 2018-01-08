@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reservations</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/animate.css">
+	<style type="text/css">
+		* {
+			/*border: solid 1px black;*/
+		}
+		#reservationsModal{
+			position: fixed; 
+			z-index: 100; 
+			left: 0;
+			top: 0;
+			width: 100%; 
+			height: 100%; 
+			overflow: auto !important; 
+			background-color: rgb(0,0,0); 
+			background-color: rgba(0,0,0,0.7);
+		}
+		.reservation-modal-content {
+			position: relative;
+			margin: auto;
+			padding: 0;
+			width: 60%;
+			top: 2%;
+			border-radius: 20% !important;
+		}
+		.close-reservation-modal {
+			color: rgba(254,254,254,0.4) !important;
+			float: right;
+			font-size: 40px !important;
+			font-weight: bolder;
+		}
+		.close-reservation-modal:hover,
+		.close-reservation-modal:focus {
+			color: rgba(254,254,254,1) !important;
+			text-decoration: none;
+			cursor: pointer;
+			transform: scale(1.5);
+			transition: 1s ease;
+		}
+		.reservation-modal-header {
+			padding: 2px 16px;
+			background-color: rgba(198,24,0,0.75);
+			color: white;
+			border-top-left-radius: 5px !important;
+			border-top-right-radius: 5px !important;
+		}
+		.reservation-modal-body,
+		.reservation-modal-body form {
+			padding-top: 5px;
+			padding-left: 20px;
+			padding-bottom: 20px;
+			padding-right: 20px;
+			background-color: #fff;
+		}
+		.reservation-modal-footer {
+			text-align: right;
+			padding: 20px 10px !important;
+			background-color: rgba(198,24,0,0.75);
+			border-bottom-left-radius: 5px !important;
+			border-bottom-right-radius: 5px !important;
+		}
+		label.col-md-12:hover {
+			cursor: pointer;
+		}
+	</style> -->
+</head>
+<body>
+	<div id="reservationsModal">
+		<div class="reservation-modal-content animated fadeInDown">
+			<div class="reservation-modal-header">
+				<span class="close-reservation-modal">&times;</span>
+				<h2>Make A Reservation</h2>
+			</div>
+			<div class="reservation-modal-body container-fluid">
+				<div class="text-center">
+					<p>Feel free to make a reservation with Terroir today!!</p>
+					<p><b>KINDLY NOTE:</b><br>We don't take online reversations past 4pm. However, we understand that last minute plans do come up. To this effect, we encourage you to please call us using the following number: 212.625.9463
+					</p> 
+					<p>To make a reservation, kindly fill out the reqiured information below:</p>
+				</div>		
+				<form class="row">
+					<div class="col-md-6 personal-details">
+						<h2 class="text-center">Personal Details</h2>
+						<div class="form-group">
+							<label for="fname">First Name: </label>
+							<input class="form-control" type="text" name="fname" placeholder="First Name" id="fname">
+						</div>
+						<div class="form-group">
+							<label for="lname">Last Name: </label>
+							<input class="form-control" type="text" name="lname" placeholder="Last Name" id="lname">
+						</div>
+						<div class="form-group">
+							<label for="email">Email:</label>
+							<input class="form-control" type="email" name="email" placeholder="someone@example.com" id="email">
+						</div>
+						<div class="form-group">
+							<label for="phoneNo">Phone Number:</label>
+							<input class="form-control" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="phoneNo" placeholder="xxx-xxx-xxxx"  id="phoneNo">
+						</div>
+					</div>
+					<div class="col-md-6 reservation-details">
+						<h2 class="text-center">Reservation Details</h2>
+						<div class="form-group">
+							<label for="reserveDate">Date of Reservation:</label>
+							<input class="form-control" type="Date" name="reserveDate" placeholder="dd/mm/yyyy" id="reserveDate">
+						</div>
+						<div class="form-group">
+							<label for="reserveTime">Time of Reservation:</label>
+							<input class="form-control" type="text" name="reserveTime" placeholder="Time of event" id="reserveTime">
+						</div>
+						<div class="form-group">
+							<label for="guestsNo">Number of Guests:</label>
+							<input class="form-control" type="text" name="guestsNo" placeholder="Number of Guests" id="guestsNo">
+						</div>
+						<div class="col-md-7" style="padding-left: 0;">
+								<label class="col-md-12" style="padding-left: 0; margin-top: 15px;">Birthday<input class="pull-right" type="radio" name="event" value="Birthday"></label>
+								<label class="col-md-12" style="padding-left: 0; margin-top: 15px;">Wedding Reception<input class="pull-right" type="radio" name="event" value="Wedding reception"></label>
+						</div>
+						<div class="col-md-5" style="padding-right: 0;">
+								<label class="col-md-12" style="padding-right: 0; margin-top: 15px;">Dinner party<input class="pull-right" type="radio" name="event" value="Dinner party"></label>
+								<label class="col-md-12" style="padding-right: 0; margin-top: 15px;">Reunion<input class="pull-right" type="radio" name="event" value="Reunion"></label>
+						</div>
+						<div class="form-group col-md-6 col-md-offset-3" style="margin-top: 15px;">
+							<label class="col-md-12">Other<input class="pull-right" type="radio" name="event" value="Other"></label>
+						</div>					
+					</div>
+				</form>
+				<div class="form-group col-md-4 col-md-offset-4">
+					<button class="form-control" onclick="validateReservationsDetails()">Submit</button>
+				</div>
+			</div>
+			<div class="reservation-modal-footer"></div>
+		</div>
+	</div>
+</body>
+</html>
+
+<!-- <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+	function validateReservationsDetails(){
+		var fn = document.getElementById('fname').value;
+		var ln = document.getElementById('lname').value;
+		var e = document.getElementById('email').value;
+		var p = document.getElementById('phoneNo').value;
+		var rd = document.getElementById('reserveDate').value;
+		var rt = document.getElementById('reserveTime').value;
+		var gn = document.getElementById('guestsNo').value;
+		var ev = (document.querySelector('input[name="event"]:checked') === null) ? alert("Please select a event type") : document.querySelector('input[name="event"]:checked').value ;
+		if (fn === "" || ln === "" || e === "" || p === "" || rd === "" || rt === "" || gn === "") {
+			// alert('Key fields are blank');
+			errorMessage("white","Please fill in all the key fields.","red");
+		} else {
+			sendReservationDetailsToDB(fn,ln,e,p,rd,rt,gn,ev);
+		}
+	}
+
+	function sendReservationDetailsToDB(fn,ln,e,p,rd,rt,gn,ev){
+		var pointer = JSON.stringify("makeReservation");
+		fn = JSON.stringify(fn);
+		ln = JSON.stringify(ln);
+		e = JSON.stringify(e);
+		p = JSON.stringify(p);
+		rd = JSON.stringify(rd);
+		rt = JSON.stringify(rt);
+		gn = JSON.stringify(gn);
+		ev = JSON.stringify(ev);
+
+		$.ajax({
+			type: "POST",
+			// url: phpUrl,
+			url: "../php/server-scripts.php",
+			data: {ppointer:pointer, pfname:fn, plname:ln, pemail:e, pphoneNumber:p, preserveDate:rd, preserveTime:rt, pguestNumber:gn, peventType: ev},
+			success: function(msg){
+				// console.log(msg);
+				if (msg === "success") {
+					document.getElementById('fname').value = "";
+					document.getElementById('lname').value = "";
+					document.getElementById('email').value = "";
+					document.getElementById('phoneNo').value = "";
+					document.getElementById('reserveDate').value = "";
+					document.getElementById('reserveTime').value = "";
+					document.getElementById('guestsNo').value = "";
+					errorMessage("white","Thank you for placing your reservation. We will contact you shortly confirming your reservation.","green",'6000');
+					var reserve_Modal = document.getElementById('reservationsModal');
+					reserve_Modal.style.display = "none";
+					$("body").removeClass("blow-up-open");
+				} else {
+					errorMessage("white","OOPS!! Unfortunatly we have encountered an error. Please try again, if the problem persists, leave us a message and we will get on it. Sorry for the inconvenience","red",'12000');
+				}
+			}
+		});
+	}
+</script> -->

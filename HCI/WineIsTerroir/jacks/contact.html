@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Terrior | Contact Us</title>
+         <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/animate.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+
+        <style type="text/css">
+            * {
+                transition: 1s ease-in-out;
+                /*border: solid 1px black;*/
+            }
+            #contactPopUp{
+                display: none;
+                position: fixed;
+                bottom: 0;
+                right: 0em;
+                z-index: 500;
+                border: solid rgba(198,24,0,1) 2px;
+                border-bottom: none !important;
+                padding: 0px 0px 0px 0px;
+                max-width: 300px; 
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;           
+            }
+            #contactBtn{
+                position: fixed;
+                bottom: 0;
+                right: 0em;
+                z-index: 500;
+                border: solid rgba(198,24,0,1) 2px;
+                background-color: rgba(198,24,0,1);
+                color: rgba(255,255,255,1);
+                padding: 10px;
+                transition: 1s ease-in-out;
+                max-width: 300px;
+                min-width: 300px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            #contactPopUp h2 {
+                width: 100%;
+                background-color: rgba(198,24,0,1);
+                color: rgba(255,255,255,1);
+                padding: 5px;
+                margin: 0 0 5px 0;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            #contactPopUp h2:hover{
+                cursor: pointer;
+            }
+            #contactPopUp h2:hover > span {
+                transform: scale(1.5);
+            }
+            #contactPopUp h2 span {
+                float: right;
+            }
+            #contactPopUp center {
+                padding: 10px;
+            }
+            #contactPopUp center form div.row div.form-group label {
+                float: left;
+                text-align: left;
+            }
+            #contactPopUp center form div.row div.form-group input {
+                color: rgba(198,24,0,1);
+            }
+            #contactPopUp center div.form-group button{
+                border: solid rgba(198,24,0,1) 2px;
+                color: rgba(198,24,0,1);
+                transition: 1s ease-in-out;
+            }
+            #contactPopUp center div.form-group button:hover,
+            #contactPopUp center div.form-group button:focus {
+                background-color: rgba(198,24,0,1);
+                color: rgba(255,255,255,1);
+                transition: 1s ease-in-out;
+            }
+        </style>
+        <script type="text/javascript">
+            // displays the contact us pop up
+            function displayContactUs(){
+                document.getElementById("contactPopUp").style.height = "auto";
+                document.getElementById("contactPopUp").style.display = "block";
+                document.getElementById("contactBtn").style.opacity = "0";
+                document.getElementById("contactPopUp").classList.remove('fadeOutDown');
+                document.getElementById("contactPopUp").classList.add('fadeInUp');
+            }
+            // hides the contact us pop up
+            function hideContactUs() { 
+                document.getElementById("contactBtn").style.opacity = "1";
+                document.getElementById("contactPopUp").classList.remove('fadeInUp');
+                document.getElementById("contactPopUp").classList.add('fadeOutDown');
+
+            }
+            // gets the details from the contacts pop up and send sthem to the DB
+            function sendComment(){
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("email").value;
+                var phoneNumber = document.getElementById("pnumber").value;
+                var comment = document.getElementById("text").value;
+                var mailingList = (document.getElementById("mailing").checked) ? "TRUE" : "FALSE";
+                var pointer = JSON.stringify("sendComment");
+
+                name = JSON.stringify(name);
+                email = JSON.stringify(email);
+                phoneNumber = JSON.stringify(phoneNumber);
+                comment = JSON.stringify(comment);
+                mailingList = JSON.stringify(mailingList);
+
+                var phpUrl = "../php/server-scripts.php";
+
+                $.ajax({
+                    type: "POST",
+                    url: phpUrl,
+                    data: {ppointer:pointer, pname:name, pemail:email, pphoneNumber:phoneNumber, pcomment:comment, pmailingList:mailingList},
+                    success: function(msg){
+                        console.log(msg);
+                        if (msg === "success") {
+                            errorMessage("white","Thank you, your feedback is appreciated.","green");
+                            // have another one for when a user joins the mailing list...
+                            document.getElementById("name").value = "";
+                            document.getElementById("email").value = "";
+                            document.getElementById("pnumber").value = "";
+                            document.getElementById("text").value = "";
+                            hideContactUs();
+                        } else {
+                            errorMessage("white","OOPS! Something went wrong. Please try again. If the problem persists leave us a complaint and we will attend to the issue as soon as possible. Sorry for the inconvenience.","red",'12000');
+                        }
+                    }
+                });
+            }
+        </script>
+
+    </head>
+
+    <body class="body">
+
+        <!-- Button used to display the contact as pop up -->
+        <button onclick="displayContactUs()" id="contactBtn">Leave us a message</button>
+
+        <!-- Contact us pop up window -->
+        <div id="contactPopUp" class="animated fadeInUp">
+            <h2 onclick="hideContactUs()" class="text-center">Contact Us<span>&times</span></h2>
+            <center>
+                <p>
+                   Drop us a message down below or join our mailing list to be up to date with our latest offers
+                </p>
+                
+                <form>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="name">Name:</label><input type="text" name="name" id="name" placeholder="Input your name" required="required" class="form-control" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="email">Email:</label><input type="email" name="email" id="email" placeholder="mymail@example.com" required="required" class="form-control" />
+                         </div>
+                        <div class="form-group col-md-12">
+                            <label for="pnumber">Number:</label><input type="Number" name="pnumber" id="pnumber" placeholder="+212-xxx-xxx" required="required" class="form-control" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="text">Message:</label><textarea name="text" id="text" placeholder="Write something to us..." class="form-control" /></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="mailing">Join our mailing list</label><input type="checkbox" name="mailing" id="mailing" style="font-size: 3.5em">
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group col-md-12">
+                    <button class="form-control" onclick="sendComment()">Submit</button>
+                </div>
+            </center>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="font.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate.css">
+    <!-- <script src="jquery-3.2.1.min.js"></script>
+    <script src="scripts.js"></script> -->
+
+    <title>Terroir</title>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="navigation">
+            <a href='terrior.html'>Home</a>
+            <a href='#foodGallery'>Menu</a>
+            <a href='#events'>Events & Offers</a>
+            <a href='#aboutus'>About us</a>
+        </div>
+        <img src="download.png" />
+        <div class="reserve">
+            <span style="font-size:24px"><p align="center">Red or White. Just enjoy the night<br>Because wine not?</p></span>
+            <a onclick="makeReservation()">
+                <h4>Make a Reservation</h4>
+            </a>
+        </div>
+    </div>
+    <div class="menuContainer">
+        <h1>Our Menu</h1>
+        <div class="menuItems">
+            <button onclick="showMenu(1)">Specials</button>
+            <button onclick="showMenu(2)">Bar Snacks</button>
+            <button onclick="showMenu(3)">Oysters</button>
+            <button onclick="showMenu(4)">Cheese</button>
+            <button onclick="showMenu(5)">Charcuterie</button>
+            <button onclick="showMenu(6)">Sweets</button>
+            <button onclick="showMenu(7)">Drinks</button>
+        </div>
+        <div class="foodGallery" id="foodGallery">
+        </div>
+    </div>
+    <div class="eventsContainer" id="events">
+        <div class="eventDetails">
+            <h2>Offers</h2>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="wine.jpg" style="width:100%">
+                    <div class="text">
+                        Happy Hour<br> Everyday from 4pm to 6pm and 11pm till we close.
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="snacks.jpg" style="width:100%">
+                    <div class="text">
+                        Bar Snack: Happy Hour, Everything $2.00 off.
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="oyster.jpg" style="width:100%">
+                    <div class="text">
+                        Oyster Happy Hour: Select oysters $1.25 each
+                    </div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+        <div class="eventdetails">
+            <h2> Read our articles</h2>
+           
+            <a class="item" style="display:none;" href="http://punchdrink.com/articles/the-life-and-afterlife-of-terroir-wine-bar-nyc-best-paul-grieco/">
+                <p>Terrior helped usher in America's wine revolution. But what does a revolutionary do when the battle is won? Read it all...</p>
+            </a>
+            
+            <a class="item"  style="display:none;" href="https://static1.squarespace.com/static/54a9817ee4b037e9bacd6c9e/t/584d8758e6f2e17fd8921e3a/1481475930040/Mascarello+11.29.16.pdf">
+                <p>Bartolo Marscarello, why we salute you!<br> Read about more about the famous winegrower...</p>
+            </a>
+            
+            <a class="item"  style="display:none;" href="https://static1.squarespace.com/static/54a9817ee4b037e9bacd6c9e/t/584d8790d1758e896e02c056/1481475987378/Musar+11.29.16.pdf">
+                <p>Serge Hochar of Chateau Musar in Lebanon. Winemaker|Soul Shaker|Son of God|Master Blaster in the history of wine..</p>
+            </a>
+
+            <div class="itemlinks">
+            <a class="item-link" onclick="changeArticle(0)">&#10094;</a>            
+            <a class="item-link" onclick="changeArticle(1)">&#x2022;</a>
+            <a class="item-link" onclick="changeArticle(2)">&#10095;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer" id="aboutus">
+        <div class="smlinks">
+            <a href="https://twitter.com/terroirNY"><img src="twitter.PNG"></a>
+            <a href="https://instagram.com/terroirny"><img src="instagram.PNG"></a>
+            <a href="https://www.facebook.com/terroirnyc"><img src="facebook.PNG"></a>
+        </div>
+        <div class="footerdetails">
+            <div class="services" style="width:50%;">
+                <img src="Services.png" style="margin:0px; height:300px;">
+            </div>
+            <div class="info">
+                <p> We are Located in:<br> 24 Harrison Street Tribeca, nyc<br> Open Daily from 4pm.<br><br> Highline at W15th Street | Terrior on the Porch<br> Open Daily from Noon- 9pm.
+                </p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+<!--     <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+        
+        function changeArticle(n){
+            var articles = document.getElementsByClassName('item');
+            for (i = 0; i < articles.length; i++) {
+                articles[i].style.display = "none";
+            }
+            articles[n].style.display = "block";
+        }
+
+        changeArticle(0);
+
+    </script> -->
+</body>
+
+
+</html>

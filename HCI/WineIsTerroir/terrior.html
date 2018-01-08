@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+		<title> Home | Food Junkie </title>
+	</head>
+
+	<body id="top">
+		<div class="container1">
+			<center>
+				<div class="navigation">
+					<div class="navigation-links col-md-6 col-md-offset-6">
+						<a href='terrior.html'>Home</a>
+						<a href='#aboutus'>About us</a>
+						<a href='order.php'>Restaurants</a>
+						<a href='#events'>Blog</a>
+					</div>
+				</div>
+				<div class="landingpage-logo col-md-4 col-md-offset-4 text-center">
+					<img src="img/download.png" />
+					<div class="landingpage-content">
+						<p class="text-center"><u>Opening Hours</u></p>
+						<p class="text-center"><b>24 Harrison Street Tribecca:</b> Monday - Sunday 4 PM</p>
+						<p class="text-center"><b>Highine at W15th Street:</b> Monday - Sunday 12 Noon - 9 PM</p>
+					</div>
+					<div id="landing-page" class="col-md-6 col-md-offset-3 text-center">
+					</div>
+				</div>
+			</center>
+		</div>
+
+		<!-- Button used to display the contact as pop up -->
+		<button onclick="displayContactUs()" id="contactBtn">Leave us a message</button>
+
+		<!-- Contact us pop up window -->
+		<div id="contactPopUp" class="animated fadeInUp">
+			<h2 onclick="hideContactUs()" class="text-center">Contact Us<span>&times</span></h2>
+			<center>
+				<p>
+				   Drop us a message down below or join our mailing list to be up to date with our latest offers
+				</p>
+				
+				<form>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label for="cname">Name:</label><input type="text" name="cname" id="cname" placeholder="Input your name" required="required" class="form-control" />
+						</div>
+						<div class="form-group col-md-12">
+							<label for="cemail">Email:</label><input type="email" name="cemail" id="cemail" placeholder="mymail@example.com" required="required" class="form-control" />
+						 </div>
+						<div class="form-group col-md-12">
+							<label for="cpnumber">Number:</label><input type="Number" name="cpnumber" id="cpnumber" placeholder="+212-xxx-xxx" required="required" class="form-control" />
+						</div>
+						<div class="form-group col-md-12">
+							<label for="commenttext">Message:</label><textarea name="commenttext" id="commenttext" placeholder="Write something to us..." class="form-control" /></textarea>
+						</div>
+						<div class="form-group col-md-12">
+							<label for="mailing">Join our mailing list</label><input type="checkbox" name="mailing" id="mailing" style="font-size: 3.5em">
+						</div>
+					</div>
+				</form>
+				<div class="form-group col-md-12">
+					<button class="form-control" onclick="validateComments()">Submit</button>
+				</div>
+			</center>
+		</div>
+
+		<!-- Error message -->
+		<p class="animated slideInDown text-center" id="error-message"></p>
+
+		<div class="aboutus">
+			<div class="mapspace">
+				<h1>Our Locations</h1>
+				<div id="map"></div>
+				<script>
+					function initMap() {
+						var uluru = {
+							lat: 40.7187199,
+							lng: -74.0101638
+						};
+						var map = new google.maps.Map(document.getElementById('map'), {
+							zoom: 17,
+							center: uluru
+						});
+						var marker = new google.maps.Marker({
+							position: uluru,
+							animation: google.maps.Animation.BOUNCE,
+							map: map
+						});
+					}
+				</script>
+				<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD05CmXUV7Q0nqsey5RNdq-uqLI2H9su0A&callback=initMap">
+				</script>
+			</div>
+			<div class="aboutcontent" id="aboutus">
+				<h1>About Us</h1>
+				<p>
+					Terroir | Tribeca opened in Spring 2010. The space was a cheese production facility back when Washington Market thrived along the Hudson River. Interiors, designed by Richard Lewis, repurposed the original, roughhewn wood and burnished, time-worn metal fabrications to stand tribute to Tribeca's history as one of America's first post-industrial neighborhoods. The drive of the food and beverage program is to give voice to place...all of our wines / beers / foodstuffs must resonate with their origins and be produced in a manner true to their history and culture. Most importantly, everything must simply taste yummy!
+				</p>
+			</div>
+		</div>
+
+		<div class="row ad">
+			<div class="col-md-8 col-md-offset-2 ad-text">
+				<h1 class="pull-left" style="font-size: 3.3em;">Wine & Dine</h1>
+				<h4 class="pull-right" style="text-align: right; font-size: 1.4em;">Happy Hour every day from 4pm - 6pm & 11pm till close</h3>
+			</div>
+		</div>
+
+		<div class="menuContainer">
+			<h1>Our Menu</h1>
+			<div class="menuItems">
+				<center>
+					<button onclick="showMenu(1)">Specials</button>
+					<button onclick="showMenu(2)">Bar Snacks</button>
+					<button onclick="showMenu(3)">Oysters</button>
+					<button onclick="showMenu(4)">Cheese</button>
+					<button onclick="showMenu(5)">Charcuterie</button>
+					<button onclick="showMenu(6)">Sweets</button>
+					<button onclick="showMenu(7)">Drinks</button>
+				</center>
+			</div>
+			<div class="foodGallery" id="foodGallery"></div>
+		</div>
+
+		<div class="row ad1">
+			<div class="text-center reservation-note col-md-6 col-md-offset-3 animated fadeInLeft">
+				<h2 style="font-size: 2em; color: white; margin-bottom: 50px;">Feel free to make a reservation with Terroir today!!</h2>
+				<p><b>KINDLY NOTE:</b><br>We don't take online reversations past 4pm. However, we understand that last minute plans do come up. <br>To this effect, we encourage you to please call us using the following number: <u>212.625.9463</u>
+				</p> 
+				<p>To make a reservation, click the button below:</p>
+				<button class="col-md-4 col-md-offset-4" onclick="reservationForm(1)">Make A Reservation</button>
+			</div>
+			
+			<div class="row container-fluid personal-dets animated fadeInLeft">
+				<div class="col-md-6 col-md-offset-3 personal-details">
+					<h2 class="text-center" style="font-size: 2em; color: white; margin-bottom: 50px;">Personal Details</h2>
+					<div class="form-group">
+						<label for="fname">First Name: </label>
+						<input class="form-control" type="text" name="fname" placeholder="First Name" id="fname">
+					</div>
+					<div class="form-group">
+						<label for="lname">Last Name: </label>
+						<input class="form-control" type="text" name="lname" placeholder="Last Name" id="lname">
+					</div>
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<input class="form-control" type="email" name="email" placeholder="someone@example.com" id="email">
+					</div>
+					<div class="form-group">
+						<label for="phoneNo">Phone Number:</label>
+						<input class="form-control" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="phoneNo" placeholder="xxx xxx xxxx"  id="phoneNo">
+					</div>
+					<button class="col-md-4 pull-left" onclick="reservationForm(0)">Back</button>
+					<button class="col-md-4 pull-right" onclick="reservationForm(2)">Next</button>
+				</div>
+			</div>
+
+			<div class="row container-fluid reserve-dets animated fadeInLeft">
+				<div class="col-md-6 col-md-offset-3 reservation-details">
+					<h2 class="text-center" style="font-size: 2em; color: white; margin-bottom: 50px;">Reservation Details</h2>
+					<div class="form-group">
+						<label for="reserveDate">Date of Reservation:</label>
+						<input class="form-control" type="Date" name="reserveDate" placeholder="dd/mm/yyyy" id="reserveDate">
+					</div>
+					<div class="form-group">
+						<label for="reserveTime">Time of Reservation:</label>
+						<input class="form-control" type="text" name="reserveTime" placeholder="Time of event" id="reserveTime">
+					</div>
+					<div class="form-group">
+						<label for="guestsNo">Number of Guests:</label>
+						<input class="form-control" type="text" name="guestsNo" placeholder="Number of Guests" id="guestsNo">
+					</div>
+					<button class="col-md-4 pull-left" onclick="reservationForm(1)">Back</button>
+					<button class="col-md-4 pull-right" onclick="reservationForm(3)">Next</button>                  
+				</div>
+			</div>
+
+			<div class="row container-fluid reserve-dets-2 animated fadeInLeft">
+				<div class="col-md-6 col-md-offset-3 reservation-details-2">
+					<h2 class="text-center" style="font-size: 2em; color: white; margin-bottom: 20px;">Reservation Details</h2>
+
+					<h3 style="color: white;" onclick="resDetsTwo(0)">Food Options(Choose only one):</h3>
+					<div class="col-md-12 container-fluid food animated fadeInUp">						
+						<div class="row">
+							<label for="foodTapasParty" style="color: white;"><input style="margin-right: 20px; color: white;" class="form-control-inline" type="radio" name="food" id="foodTapasParty" value="Tapas Party">Tapas Party - $30 per person</label>
+							<p style="text-align: left !important; color: white;">Food(6 small plate selections: 2 bar snacks /  2 fried items / 2 bruschetta)</p>
+						</div>
+
+						<div class="row">
+							<label for="foodUberTapasParty" style="color: white;"><input style="margin-right: 20px; color: white;" type="radio" name="food" id="foodUberTapasParty" value="Uber Tapas Party">Uber Tapas Party - $40 per person</label>
+							<p style="text-align: left !important; color: white;">Food(8 small plate selections: 2 bar snacks /  2 fried items / 2 bruschetta / 1 salad / 1 sandwich + cheese & charcuterie)</p>
+						</div>
+
+						<div class="row">
+							<label for="dinnerPackage" style="color: white;"><input style="margin-right: 20px; color: white;" type="radio" name="food" id="dinnerPackage" value="Dinner Package">Dinner Package - $58 per person</label>
+							<p style="text-align: left !important; color: white;">Food(12 small plate selections from <i><b>ALL</b></i> + cheese & charcuterie)</p>
+						</div>
+					</div>
+
+					<h3 style="color: white;" onclick="resDetsTwo(1)">Wine Options(Choose only one):</h3>
+					<div class="col-md-12 container-fluid wine animated fadeInUp">
+						<div class="row">
+							<label for="wineEnjoy" style="color: white;"><input style="margin-right: 20px; color: white;" type="radio" name="wine" id="wineEnjoy" value="Wine for Enjoyment">Wine for Everyday Enjoyment  - $34 per person</label>
+							<p style="text-align: left !important; color: white;">4 different selections + draft beers</p>
+						</div>
+
+						<div class="row">
+							<label for="wineLove" style="color: white;"><input style="margin-right: 20px; color: white;" type="radio" name="wine" id="wineLove" value="I love wine">I Love and I want to Learn More - $42 per person</label>
+							<p style="text-align: left !important; color: white;">6 different selections + draft beers</p>
+						</div>
+
+						<div class="row">
+							<label for="wineImpress" style="color: white;"><input style="margin-right: 20px; color: white;" type="radio" name="wine" id="wineImpress" value="Wine Impress">Impress my Boss and my In-Laws - $52 per person</label>
+							<p style="text-align: left !important; color: white;">7 different selections + draft beers</p>
+						</div>
+
+						<div class="row">
+							<label for="warrenBuffet" style="color: white;"><input style="margin-right: 20px; color: white;" type="radio" name="wine" id="warrenBuffet" value="Warren Buffer">Warren Buffet is picking up the cheque - $72 per person</label>
+							<p style="text-align: left !important; color: white;">8 different selections + draft beers</p>
+						</div>
+
+						<div class="row">
+							<label for="lottery" style="color: white;"><input style="margin-right: 20px; color: white;" type="radio" name="wine" id="lottery" value="lottery">I just won the largest powerball lottery ever - $100 per person</label>
+							<p style="text-align: left !important; color: white;">12 different selections + draft beers</p>
+						</div>
+					</div>
+
+					<button class="col-md-4 pull-left" onclick="reservationForm(2)">Back</button>
+					<button class="col-md-4 pull-right" onclick="reservationForm(4)">Submit</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="eventsContainer" id="events">
+			<h1 style="color:white;">Read our articles</h1>
+			<div class="art">
+				<figure>
+					<img src="img/chopped.png" alt="">
+					<figcaption>
+						<h3>ANDREW RICATELLI!</h3>
+						<span>terroir | tribeca congratulates our chef, Andrew Riccatelli, on his victory in Food Network’s Chopped.</span>
+						<a target="_blank" href="http://www.wineisterroir.com/andrew">Read more</a>
+						<a href="#" class="close-caption hidden">Read more</a>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/bartolo.jpg" alt="">
+					<figcaption>
+						<h3>BARTOLO MASCARELLO</h3>
+						<span>Bartolo Marscarello, why we salute you!<br> Read about more about the famous winegrower...</span>
+						<a target="_blank" href="https://static1.squarespace.com/static/54a9817ee4b037e9bacd6c9e/t/584d8758e6f2e17fd8921e3a/1481475930040/Mascarello+11.29.16.pdf">Read more</a>
+						<a href="#" class="close-caption hidden">Read More</a>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/sor2016.jpg" alt="">
+					<figcaption>
+						<h3>SUMMER OF REISLING</h3>
+						<span>Wednesday, June 21st, 2017 begins the Summer of Riesling 2017* at terroir | tribeca</span>
+						<a target="_blank" href="http://www.wineisterroir.com/summer-of-riesling-2017">Read more</a>
+						<a href="#" class="close-caption hidden">Read More</a>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/serge_hochar.jpg" alt="">
+					<figcaption>
+						<h3>CHATEAU MUSAR</h3>
+						<span>Serge Hochar of Chateau Musar in Lebanon. Winemaker|Soul Shaker|Son of God|Master Blaster in the history of wine..</span>
+						<a target="_blank" href="https://static1.squarespace.com/static/54a9817ee4b037e9bacd6c9e/t/584d8790d1758e896e02c056/1481475987378/Musar+11.29.16.pdf">Read more</a>
+						<a href="#" class="close-caption hidden">Read More</a>
+					</figcaption>
+				</figure>
+			</div>
+
+		</div>
+
+		<div class="footer" id="aboutus">
+			<div class="smlinks">
+				<a target="_blank" href="https://twitter.com/terroirNY"><img src="img/twitter.PNG"></a>
+				<a target="_blank" href="https://instagram.com/terroirny"><img src="img/instagram.PNG"></a>
+				<a target="_blank" href="https://www.facebook.com/terroirnyc"><img src="img/facebook.PNG"></a>
+			</div>
+			<p style="color:white;font-size:15px;">&copy;Terroir</p>
+		</div>
+
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+			// this is the script for smooth scrolling
+			$(document).ready(function() {
+				$(".navigation a, #up-arrow, #landing-page a").on('click', function(event) {
+					if (this.hash !== "") {
+						event.preventDefault();
+						var hash = this.hash;
+						$('html, body').animate({
+							scrollTop: $(hash).offset().top
+						}, 1200, function() {
+							window.location.hash = hash;
+						});
+					}
+				});
+			});
+
+			function showMenu(menuNumber) {
+				switch (menuNumber) {
+					case 1:
+						// specials
+						callAJAX("specials");
+						break;
+					case 2:
+						// snacks
+						callAJAX("snacks");
+						break;
+					case 3:
+						// oysters
+						callAJAX("oysters");
+						break;
+					case 4:
+						// cheese
+						callAJAX("cheese");
+						break;
+					case 5:
+						// charcuterie
+						callAJAX("charcuterie");
+						break;
+					case 6:
+						// sweets
+						callAJAX("sweets");
+						break;
+					case 7:
+						// wine
+						callAJAX("drinks");
+						break;
+					default:
+						// specials
+						callAJAX("specials");
+						break;
+				}
+			}
+
+			function callAJAX(menu) {
+				var menu = JSON.stringify(menu);
+				var pointer = JSON.stringify("displayMenuCards");
+				$.ajax({
+					type: "POST",
+					// url: phpUrl,
+					url: "php/server-scripts.php",
+					data: {
+						ppointer: pointer,
+						pmenu: menu
+					},
+					success: function(msg) {
+						// console.log(msg);
+						document.getElementById('foodGallery').innerHTML = msg;
+					}
+				});
+			}
+
+			$(document).ready(function() {
+				showMenu(1);
+			});
+		</script>
+		<script type="text/javascript">
+			// styles and displays the error message
+			function errorMessage(color = "white", msg, bgcolor = "red", delay = '4000'){
+				var error_msg = document.getElementById("error-message");
+				error_msg.style.backgroundColor = bgcolor;
+				error_msg.style.color = color;
+				error_msg.innerHTML = msg;
+				error_msg.style.display = "block";
+				$('#error-message').delay(delay).fadeOut('slow');
+			}
+
+			// displays the contact us pop up
+			function displayContactUs(){
+				document.getElementById("contactPopUp").style.height = "auto";
+				document.getElementById("contactPopUp").style.display = "block";
+				document.getElementById("contactBtn").style.opacity = "0";
+				document.getElementById("contactPopUp").classList.remove('fadeOutDown');
+				document.getElementById("contactPopUp").classList.add('fadeInUp');
+			}
+			// hides the contact us pop up
+			function hideContactUs() { 
+				document.getElementById("contactBtn").style.opacity = "1";
+				document.getElementById("contactPopUp").classList.remove('fadeInUp');
+				document.getElementById("contactPopUp").classList.add('fadeOutDown');
+
+			}
+			// gets the details from the contacts pop up and send sthem to the DB
+			function sendComment(){
+				// if (validateComments()) {
+					var name = document.getElementById("cname").value;
+					var email = document.getElementById("cemail").value;
+					var phoneNumber = document.getElementById("cpnumber").value;
+					var comment = document.getElementById("commenttext").value;
+					var mailingList = (document.getElementById("mailing").checked) ? "TRUE" : "FALSE";
+					var pointer = JSON.stringify("sendComment");
+
+					name = JSON.stringify(name);
+					email = JSON.stringify(email);
+					phoneNumber = JSON.stringify(phoneNumber);
+					comment = JSON.stringify(comment);
+					mailingList = JSON.stringify(mailingList);
+
+					var phpUrl = "php/server-scripts.php";
+
+					console.log("JSON'ed");
+
+					$.ajax({
+						type: "POST",
+						url: phpUrl,
+						data: {ppointer:pointer, pname:name, pemail:email, pphoneNumber:phoneNumber, pcomment:comment, pmailingList:mailingList},
+						success: function(msg){
+							console.log(msg);
+							if (msg === "success.") {
+								errorMessage("white","Thank you, your feedback is appreciated.","green");
+								// have another one for when a user joins the mailing list...
+								document.getElementById("cname").value = "";
+								document.getElementById("cemail").value = "";
+								document.getElementById("cpnumber").value = "";
+								document.getElementById("commenttext").value = "";
+								hideContactUs();
+							} else {
+								errorMessage("white","OOPS! Something went wrong. Please try again. If the problem persists leave us a complaint and we will attend to the issue as soon as possible. Sorry for the inconvenience.","red",'12000');
+							}
+						}
+					});
+				// }
+			}
+
+			// validates the reservation form
+			function validateComments() {
+				var name = document.getElementById("cname").value;
+				var email = document.getElementById("cemail").value;
+				var phoneNumber = document.getElementById("cpnumber").value;
+				var comment = document.getElementById("commenttext").value;
+				if (name === "" || email === "" || phoneNumber === "" || comment === "") {
+					errorMessage("white", "Please fill in all the key fields.", "red");
+					console.log("validated failed");
+				} else {
+					console.log("validated passed");
+					sendComment();
+				}
+			}
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				reservationForm(0);
+				resDetsTwo(0);
+			});
+			function reservationForm(section){
+				var note = document.getElementsByClassName('reservation-note')[0];
+				var personal = document.getElementsByClassName('personal-dets')[0];
+				var reserve = document.getElementsByClassName('reserve-dets')[0];
+				var reserve_2 = document.getElementsByClassName('reserve-dets-2')[0];
+				switch(section){
+					case 0:
+						note.style.display = "block";
+						personal.style.display = "none";
+						reserve.style.display = "none";
+						reserve_2.style.display = "none";
+						break;
+					case 1:
+						note.style.display = "none";
+						personal.style.display = "block";
+						reserve.style.display = "none";
+						reserve_2.style.display = "none";
+						break;
+					case 2:
+						var fn = document.getElementById('fname').value;
+						var ln = document.getElementById('lname').value;
+						var e = document.getElementById('email').value;
+						var p = document.getElementById('phoneNo').value;
+						if (fn === "" || ln === "" || e === "" || p === "") {
+							errorMessage("white", "Please fill in all the fields.");
+						} else {
+							note.style.display = "none";
+							personal.style.display = "none";
+							reserve.style.display = "block";
+							reserve_2.style.display = "none";
+						}
+						break;
+					case 3:
+						var rd = document.getElementById('reserveDate').value;
+						var rt = document.getElementById('reserveTime').value;
+						var gn = document.getElementById('guestsNo').value;
+						if (rd === "" || rt === "" || gn === "") {
+							errorMessage("white", "Please fill in all the fields.");
+						} else {
+							note.style.display = "none";
+							personal.style.display = "none";
+							reserve.style.display = "none";
+							reserve_2.style.display = "block";
+						}
+						break;
+					case 4:
+						var food = (document.querySelector('input[name="food"]:checked') === null) ? errorMessage("white", "Please select a food package.") : document.querySelector('input[name="food"]:checked').value ;
+						var wine = (document.querySelector('input[name="wine"]:checked') === null) ? errorMessage("white", "Please select a wine package.") : document.querySelector('input[name="wine"]:checked').value ;
+
+						if ( ((document.querySelector('input[name="wine"]:checked')) === null) || ((document.querySelector('input[name="food"]:checked') === null)) ) {
+							errorMessage("white", "Please select a package for food and wine.");
+						} else {
+
+						}
+
+						var fn = document.getElementById('fname').value;
+						var ln = document.getElementById('lname').value;
+						var e = document.getElementById('email').value;
+						var p = document.getElementById('phoneNo').value;
+						var rd = document.getElementById('reserveDate').value;
+						var rt = document.getElementById('reserveTime').value;
+						var gn = document.getElementById('guestsNo').value;
+						var food = document.querySelector('input[name="food"]:checked').value;
+						var wine = document.querySelector('input[name="wine"]:checked').value;
+
+						fn = JSON.stringify(fn);
+						ln = JSON.stringify(ln);
+						e = JSON.stringify(e);
+						p = JSON.stringify(p);
+						rd = JSON.stringify(rd);
+						rt = JSON.stringify(rt);
+						gn = JSON.stringify(gn);
+						food = JSON.stringify(food);
+						wine = JSON.stringify(wine);
+						
+						var pointer = JSON.stringify("makeReservation")
+						
+						$.ajax({
+							type: 'POST',
+							url: 'php/server-scripts.php',
+							data:{ppointer:pointer, pfname:fn, plname:ln, pemail:e, pphoneNumber:p, preserveDate:rd, preserveTime:rt, pguestNumber:gn, pfoodPackage: food, pwinePackage: wine},
+							success: function(msg){
+								if (msg === "success.") {
+									document.getElementById('fname').value = "";
+									document.getElementById('lname').value = "";
+									document.getElementById('email').value = "";
+									document.getElementById('phoneNo').value = "";
+									document.getElementById('reserveDate').value = "";
+									document.getElementById('reserveTime').value = "";
+									document.getElementById('guestsNo').value = "";
+									errorMessage("white","Thank you for placing your reservation. We will contact you shortly confirming your reservation.","green",'6000');
+									reservationForm(0);
+								} else {
+									errorMessage("white","OOPS!! Unfortunatly we have encountered an error. Please try again, if the problem persists, leave us a message and we will get on it. Sorry for the inconvenience","red",'12000');
+								}
+							}
+						});
+					default:
+						errorMessage("white", "Ooops! Unexpected error occured. Please try again.");
+						// reservationForm(0);
+						break;
+				}
+			}
+
+			function resDetsTwo(section){
+				var food = document.getElementsByClassName('food')[0];
+				var wine = document.getElementsByClassName('wine')[0];
+				// var beverage = document.getElementsByClassName('beverage')[0];
+				switch(section){
+					case 0:
+						food.style.display = "block";
+						wine.style.display = "none";
+						// beverage.style.display = "none";
+						break;
+					case 1:
+						food.style.display = "none";
+						wine.style.display = "block";
+						// beverage.style.display = "none";
+					// 	break;
+					// case 2:
+					// 	food.style.display = "none";
+					// 	wine.style.display = "none";
+					// 	beverage.style.display = "block";
+						break;
+					default:
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>
