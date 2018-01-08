@@ -1,0 +1,770 @@
+html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden !important;
+}
+
+body {
+    background-color: black !important;
+    opacity: 0.9;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden !important;
+}
+
+.container1 {
+    /*background-image: url(../img/bg4.jpeg); */
+    /*background-image: url(../img/homepage.jpg); */
+    background-image: url(../img/kermit-1651615_1920.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.landingpage-logo {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    margin-top: 7%;
+}
+
+.landingpage-content {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.row {
+    margin-left: auto;
+}
+
+h1,h4 {
+    text-align: center;
+    font-family: 'Libre Baskerville', serif !important;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: darkred;
+}
+
+.navigation {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: inline-block;
+    background-image: url(../img/kermit-1651615_1920.jpg);
+    /*background-image: url(../img/homepage.jpg);*/
+    background-color: rgba(255,255,255,0.2);
+    color: maroon !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 999;
+    text-transform: capitalize;
+    overflow: hidden !important;
+    max-height: 150px;
+    transition: 2s ease-in-out;
+    position: fixed;
+    padding: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+.navigation a {
+    margin: 5px 2%;
+    padding: 10px;
+    color: #f5f5f5;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+
+.navigation a:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transition: 0.5s ease-in-out;
+    /*color: */
+}
+
+a {
+    color: #f5f5f5;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.275em;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none !important;
+    color: maroon !important;
+}
+
+
+/*
+*{border: solid 1px black;}*/
+
+body img {
+    height: 200px;
+    width: auto;
+    /*margin-left: 35%;*/
+    /*margin-top: 11%;*/
+}
+
+h4 {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Libre Baskerville', serif;
+    color: maroon;
+    margin-top: 0px;
+    text-emphasis: none;
+}
+
+.reserve {
+    margin-left: 400px;
+    margin-top: 200px;
+    margin-right: 400px;
+    background-color: white;
+    opacity: 0.8;
+    /*width: 800px;
+    height: 150px;*/
+}
+
+.menuContainer {
+    background-color: white;
+    opacity: 0.9;
+    margin: 2px;
+    padding: 10px 10px 10px 0;
+}
+
+.menuItems button {
+    margin-left: 40px;
+}
+
+h2,
+p {
+    /*font-size: 100%;*/
+    font-weight: normal;
+    font-family: 'Libre Baskerville', serif;
+    text-align: center;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+ul {
+    overflow: hidden;
+    padding: 0em;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    display: block;
+    height: 6em;
+    width: 6em;
+    margin: 1.5em;
+    -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+    -webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+    -moz-transition: -moz-transform .15s linear;
+    -o-transition: -o-transform .15s linear;
+    -webkit-transition: -webkit-transform .15s linear;
+}
+
+ul li {
+    float: left;
+}
+
+ul li h2 {
+    font-size: 70%;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+ul li p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 40%;
+}
+
+ul li a {
+    -webkit-transform: rotate(-6deg);
+    -o-transform: rotate(-6deg);
+    -moz-transform: rotate(-6deg);
+}
+
+ul li a img {
+    border-radius: 10px;
+    margin: 0em;
+    width: 6.5em;
+    height: 6.5em;
+    position: relative;
+}
+
+ul li:nth-child(even) a {
+    -o-transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
+    -moz-transform: rotate(4deg);
+    position: relative;
+    top: 5px;
+    background: #ccf;
+}
+
+ul li:nth-child(3) a {
+    -o-transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    position: relative;
+    top: -5px;
+    background: #fff;
+}
+
+ul li:nth-child(5n) a {
+    -o-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    position: relative;
+    top: 5px;
+}
+
+ul li a:hover,
+ul li a:focus {
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+    -moz-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+    -webkit-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    position: relative;
+    z-index: 5;
+}
+
+ol {
+    text-align: center;
+}
+
+ol li {
+    display: inline;
+    padding-right: 1em;
+}
+
+ol li a {
+    color: #fff;
+}
+
+.menuItems center button {
+    background-color: transparent;
+    color: rgba(198, 24, 0, 1) !important;
+    transition: 0.75s ease-in-out;
+    border: 1px solid rgba(198, 24, 0, 1);
+    margin: 5px 40px !important;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.menuItems center button:hover {
+    background-color: rgba(198, 24, 0, 1);
+    color: rgba(255, 255, 255, 1) !important;
+    border: 1px solid rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+    transition: 0.75s ease-in-out;
+}
+
+.menuItems center button:active {
+    position: relative;
+    top: 1px;
+}
+
+.eventsContainer {
+    background-image: url(../img/kermit-1651615_1920.jpg);
+    background-attachment: fixed;
+    opacity: 0.9;
+    padding: 20px;
+    padding-top: 5px;
+}
+
+.eventDetails {
+    width: %;
+    margin: 0px;
+}
+
+.eventsContainer h2 {
+    font-size: 26px;
+}
+
+.eventdetails {
+    width: 50%;
+    overflow: hidden;
+    color: black;
+}
+
+.eventdetails p {
+    font-size: 28px;
+}
+
+.eventdetails a {
+    font-size: 22px;
+    color: black;
+}
+
+.eventdetails a:hover {
+    color: maroon;
+}
+
+.eventDetails p {
+    font-size: 24px;
+}
+
+.services {
+    margin: 0px;
+}
+
+.smlinks {
+    margin-left: 43%;
+    display: inline;
+}
+
+.smlinks img {
+    width: auto;
+    height: auto;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.smlinks a {
+    margin-left: 1em;
+    transition: 1s ease-in-out;
+}
+
+.smlinks a img {
+    transition: 1s ease-in-out;
+}
+
+.smlinks a img:hover {
+    transform: scale(2.0);
+    transition: 1s ease-in-out;
+}
+
+.footer {
+    /*background-image: url(../img/kermit-1651615_1920.jpg);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.footerdetails {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.info {
+    width: 50%;
+    color: white;
+    font-size: 24px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+.item-link:hover {
+    cursor: pointer;
+}
+
+.item-link {
+    margin: 5px 40px;
+    font-size: 3em !important;
+}
+
+.itemlinks {
+    margin-top: 50px;
+}
+
+.eventsContainer h2 {
+    color: darkred;
+    font-size: 30px;
+}
+
+.reservation-note {
+    padding: 30px;
+    margin-top: 10%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+.reservation-note p, 
+.reservation-note h3 {
+    color: rgba(255,255,255,1) !important;
+    font-size: 1.3em;
+}
+
+.reservation-note button,
+.personal-details button,
+.reservation-details button,
+.reservation-details-2 button {
+    background-color: transparent;
+    color: rgba(198, 24, 0, 1) !important;
+    transition: 0.75s ease-in-out;
+    border: 1px solid rgba(198, 24, 0, 1);
+    border-radius: 5px;
+    font-size: 1.3em;
+}
+
+.reservation-note button:hover,
+.personal-details button:hover,
+.reservation-details button:hover,
+.reservation-details-2 button:hover {
+    background-color: rgba(198, 24, 0, 1);
+    color: rgba(255, 255, 255, 1) !important;
+    border: 1px solid rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+    transition: 0.75s ease-in-out;
+}
+
+div.personal-details{
+    padding: 30px;
+    margin-top: 5%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+div.personal-details h2,
+div.personal-details div.form-group label,
+div.reservation-details h2,
+div.reservation-details div.form-group label,
+div.reservation-details-2 h3,
+div.reservation-details-2 div.col-md-12 div.row label,
+div.reservation-details-2 div.col-md-12 div.row p, {
+    color: rgba(255,255,255,1) !important;
+
+}
+
+div.reservation-details {
+    padding: 30px;
+    margin-top: 3%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+div.reservation-details div.form-group label.col-md-12,
+div.reservation-details div.form-group label.col-md-6 {
+    padding: 5px;
+    transition: 1s ease-in-out !important;
+}
+
+.reservation-note,
+.personal-dets,
+.reserve-dets,
+.reserve-dets-2 {
+    display: none;
+}
+
+.food,
+.wine,
+.beverage {
+    display: none;
+}
+
+div.reservation-details-2 h3:hover{
+    cursor: pointer;
+    transition: 1s ease-in-out;
+    transform: scale(1.04);
+}
+
+div.reservation-details-2{
+    padding: 30px;
+    margin-top: 3%;
+    background-color: rgba(0,0,0,0.3);
+    /*background-color: rgba(255,255,255,0.3);*/
+    border-radius: 5px;
+}
+
+label.col-md-12:hover {
+    cursor: pointer;
+}
+
+#up-arrow {
+    position: fixed;
+    bottom: 45px;
+    right: 30px;
+    background-color: transparent;
+    color: rgba(198, 24, 0, 0.5) !important;
+    box-shadow: 0 0 10px rgba(198, 24, 0, 0.5);
+    z-index: 499;
+    padding: 2px 4px 8px 4px;
+    border-radius: 5px;
+    align-content: center;
+    transition: 1s ease-in-out;
+}
+
+#up-arrow:hover,
+#up-arrow:active {
+    background-color: rgb(198, 24, 0);
+    color: rgba(254, 254, 254, 1) !important;
+    transition: 1s ease-in-out;
+}
+
+.aboutus {
+    display: flex;
+    background-color: white;
+    padding: 20px;
+}
+
+.ad{
+    /*background-image: url(../img/hero1.jpg);*/
+    background-image: url(../img/cocktails.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.ad1{
+    background-image: url(../img/cheers-839865_1920.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.ad-text{
+    padding: 30px;
+    margin-top: 15%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+.ad-text h1,
+.ad-text h4 {
+    color: white;
+    margin: 20px 5px;
+    font-size: 1.5em;
+    font-family: inherit;
+    font-weight: bolder;
+}
+
+#map {
+    width: 100%;
+    height: 300px;
+    background-color: grey;
+    margin: 20px;
+}
+
+.mapspace {
+    width: 50%;
+}
+
+.aboutcontent {
+    width: 50%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.aboutcontent p {
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    line-height: 2.0;
+    padding: 20px 30px;
+}
+
+
+
+.art {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: 'Libre Baskerville', serif;
+
+}
+.art a{
+    font-size: 15px;
+    color: white;
+}
+.art a:hover{
+    background-color: white;
+}
+.text-center {
+    font-size: 13px;
+}
+
+figure {
+    margin: 0;
+    position: relative;
+}
+
+figure img {
+    display: block;
+    position: relative;
+    z-index: 10;
+    /*height: auto;*/
+}
+
+figure figcaption {
+    display: block;
+    position: absolute;
+    z-index: 5;
+}
+
+figure h3 {
+    color: #fff;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+figure span {
+    color: #b2cce1;
+    display: block;
+    line-height: 1.2;
+}
+
+figure a.close-caption {
+    display: block;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #315a7d;
+}
+
+figure a.close-caption.hidden {
+    display: none;
+}
+
+a.close-caption {
+    top: 10px;
+    right: 10px;
+}
+
+figure figcaption {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: maroon;
+    text-align: center;
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+    transition: all 0.5s;
+}
+
+figure figcaption h3 {
+    margin-top: 20px;
+}
+
+figure img {
+    backface-visibility: hidden;
+    transition: all 0.5s;
+}
+
+figure:hover img,
+figure.hover img {
+    transform: rotateY(180deg);
+}
+
+figure:hover figcaption,
+figure.hover figcaption {
+    transform: rotateY(0);
+}
+
+.foodGallery center a{
+    font-size: 20px;
+    color: maroon;
+}
+
+
+#contactPopUp{
+    display: none;
+    position: fixed;
+    bottom: 0 !important;
+    right: 0 !important;
+    z-index: 500;
+    border: solid rgba(198,24,0,1) 2px;
+    border-bottom: none !important;
+    padding: 0px 0px 0px 0px;
+    max-width: 300px; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(255,255,255,1);           
+}
+#contactBtn{
+    position: fixed;
+    bottom: 0 !important;
+    right: 0 !important;
+    z-index: 500;
+    border: solid rgba(198,24,0,1) 2px;
+    background-color: rgba(198,24,0,1);
+    color: rgba(255,255,255,1);
+    padding: 10px;
+    transition: 1s ease-in-out;
+    max-width: 300px;
+    min-width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: rgba(255,255,255,1) !important;
+}
+#contactPopUp h2 {
+    width: 100%;
+    background-color: rgba(198,24,0,1);
+    color: rgba(255,255,255,1);
+    padding: 7px;
+    margin: 0 0 5px 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.7em;
+}
+#contactPopUp h2:hover{
+    cursor: pointer;
+}
+#contactPopUp h2:hover > span {
+    transform: scale(1.5);
+    transition: 0.6s ease-in-out;
+}
+#contactPopUp h2 span {
+    float: right;
+    transition: 0.6s ease-in-out;
+}
+#contactPopUp center {
+    padding: 10px;
+}
+#contactPopUp center form div.row div.form-group label {
+    float: left;
+    text-align: left;
+}
+#contactPopUp center form div.row div.form-group input {
+    color: rgba(198,24,0,1);
+}
+#contactPopUp center div.form-group button{
+    border: solid rgba(198,24,0,1) 2px;
+    color: rgba(198,24,0,1);
+    transition: 1s ease-in-out;
+}
+#contactPopUp center div.form-group button:hover,
+#contactPopUp center div.form-group button:focus {
+    background-color: rgba(198,24,0,1);
+    color: rgba(255,255,255,1);
+    transition: 1s ease-in-out;
+}
+
+#error-message {
+    display: none;
+    top: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1200;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 5px #999;
+    background-color: rgba(255,255,255,1);
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1.02em;
+    letter-spacing: 2px;
+}
